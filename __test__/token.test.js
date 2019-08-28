@@ -62,7 +62,8 @@ describe('token', () => {
       await expect(verify(token)).rejects.toThrow('Unknown type')
     })
     it('fails if schema validation for header fails', async () => {
-      const token = await signed(payload, key, { algorithm: 'PS256' })
+      const octKey = await JWK.generate('oct')
+      const token = await signed(payload, octKey, { algorithm: 'HS256' })
       await expect(verify(token)).rejects.toThrow()
     })
     it('fails if schema validation for payload fails', async () => {
