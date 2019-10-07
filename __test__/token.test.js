@@ -17,7 +17,7 @@ const defaultOptions = {
   algorithm: 'RS256',
   expiresIn: '1 hour',
   issuer: 'https://mycv.work',
-  audience: 'mydata://account'
+  audience: 'egendata://account'
 }
 
 async function signed (payload, key, options = {}) {
@@ -99,7 +99,7 @@ describe('token', () => {
           jwk: key.toJWK(false)
         })
         expect(result.payload).toEqual({
-          aud: 'mydata://account',
+          aud: 'egendata://account',
           exp: expect.any(Number),
           iat: expect.any(Number),
           iss: 'https://mycv.work',
@@ -112,7 +112,7 @@ describe('token', () => {
     describe('token with jwk', () => {
       let deviceKey
       beforeEach(async () => {
-        deviceKey = await JWK.generate('RSA', 1024, { kid: 'mydata://account/jwks/account_key', use: 'sig' })
+        deviceKey = await JWK.generate('RSA', 1024, { kid: 'egendata://account/jwks/account_key', use: 'sig' })
         payload = {
           type: 'CONNECTION_INIT',
           sid: 'f0b5bef5-c137-4211-adaf-a0d6a37be8b1',
@@ -126,7 +126,7 @@ describe('token', () => {
       it('can verify token', async () => {
         const token = await signed(payload, deviceKey, {
           kid: false,
-          issuer: 'mydata://account',
+          issuer: 'egendata://account',
           audience: 'https://mycv.work',
           header: { jwk: deviceKey }
         })
@@ -139,7 +139,7 @@ describe('token', () => {
           type: 'CONNECTION_INIT',
           sid: 'f0b5bef5-c137-4211-adaf-a0d6a37be8b1',
           aud: 'https://mycv.work',
-          iss: 'mydata://account',
+          iss: 'egendata://account',
           exp: expect.any(Number),
           iat: expect.any(Number)
         })
@@ -155,13 +155,13 @@ describe('token', () => {
       }
       options = {
         kid: false,
-        issuer: 'mydata://account',
+        issuer: 'egendata://account',
         audience: 'https://mycv.work',
         header: { jwk: key },
         algorithm: 'RS256'
       }
       key = await JWK.generate('RSA', 1024, {
-        kid: 'mydata://account/jwks/account_key',
+        kid: 'egendata://account/jwks/account_key',
         use: 'sig'
       })
     })
