@@ -11,7 +11,7 @@ describe('schemas', () => {
   let jwtDefaults
   beforeEach(() => {
     jwtDefaults = {
-      aud: 'mydata://account',
+      aud: 'egendata://account',
       exp: 1234,
       iat: 1233,
       iss: 'https://mycv.work'
@@ -48,8 +48,9 @@ describe('schemas', () => {
           }
         ]
       }
-      await expect(schemas.CONNECTION_REQUEST.validate(payload))
-        .resolves.not.toThrow()
+      await expect(
+        schemas.CONNECTION_REQUEST.validate(payload)
+      ).resolves.not.toThrow()
     })
   })
   describe('CONNECTION', () => {
@@ -81,7 +82,7 @@ describe('schemas', () => {
               lawfulBasis: 'CONSENT',
               jwks: {
                 keys: [
-                  jwk('mydata://account/baa949aa-fbb5-4aad-8351-d6ef219dd07b'),
+                  jwk('egendata://account/baa949aa-fbb5-4aad-8351-d6ef219dd07b'),
                   jwk('http://cv.work')
                 ]
               }
@@ -91,8 +92,9 @@ describe('schemas', () => {
       }
     })
     it('validates a correct payload', async () => {
-      await expect(schemas.CONNECTION.validate(connection))
-        .resolves.not.toThrow()
+      await expect(
+        schemas.CONNECTION.validate(connection)
+      ).resolves.not.toThrow()
     })
     describe('CONNECTION_RESPONSE', () => {
       it('validates a correct payload', async () => {
@@ -100,10 +102,12 @@ describe('schemas', () => {
           ...jwtDefaults,
           aud: 'https://smoothoperator',
           type: 'CONNECTION_RESPONSE',
-          payload: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dnZWRJbkFzIjoiYWRtaW4iLCJpYXQiOjE0MjI3Nzk2Mzh9.gzSraSYS8EXBxLN_oWnFSRgCzcmJmMjLiuyu5CSpyHI'
+          payload:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dnZWRJbkFzIjoiYWRtaW4iLCJpYXQiOjE0MjI3Nzk2Mzh9.gzSraSYS8EXBxLN_oWnFSRgCzcmJmMjLiuyu5CSpyHI'
         }
-        await expect(schemas.CONNECTION_RESPONSE.validate(payload))
-          .resolves.not.toThrow()
+        await expect(
+          schemas.CONNECTION_RESPONSE.validate(payload)
+        ).resolves.not.toThrow()
       })
     })
   })
