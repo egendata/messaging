@@ -1,4 +1,4 @@
-# @gendata/messaging
+# @egendata/messaging
 
 ![License](https://flat.badgen.net/github/license/egendata/messaging)
 ![Dependabot](https://flat.badgen.net/dependabot/egendata/messaging?icon=dependabot)
