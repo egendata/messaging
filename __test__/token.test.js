@@ -1,7 +1,6 @@
 const tokenService = require('../lib/token')
 const { JWT, JWK } = require('@panva/jose')
 const { Base64: { encodeURI } } = require('js-base64')
-const axios = require('axios')
 
 const { verify, sign } = tokenService({
   sign: (payload, key, header) => JWT.sign(payload, JWK.importKey(key), { header }),
@@ -37,7 +36,8 @@ describe('token', () => {
       kid = 'https://mycv.work/jwks/abcdef0123456789'
       key = await JWK.generate('RSA', 1024, { kid, use: 'sig' })
       wrongKey = await JWK.generate('RSA', 1024, { kid, use: 'sig' })
-      axios.get.mockResolvedValue({ status: 200, data: key.toJWK(false) })
+      // eslint-disable-next-line no-undef
+      fetch.mockResponse(JSON.stringify(key.toJWK(false)))
       payload = {
         type: 'AUTHENTICATION_REQUEST',
         sid: 'f0b5bef5-c137-4211-adaf-a0d6a37be8b1',
@@ -72,7 +72,8 @@ describe('token', () => {
       await expect(verify(token)).rejects.toThrow()
     })
     it('fails if kid cannot be loaded', async () => {
-      axios.get.mockRejectedValue(404)
+      // eslint-disable-next-line no-undef
+      fetch.mockReject(404)
       const token = await signed(payload, key)
       await expect(verify(token)).rejects.toThrow(`No key found for kid: ${kid}`)
     })
