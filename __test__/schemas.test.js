@@ -1,5 +1,5 @@
 const schemas = require('../lib/schemas')
-const { JWK } = require('@panva/jose')
+const { JWK } = require('jose')
 
 function jwk (domain) {
   const key = JWK.generateSync('RSA', 1024, { use: 'enc' }).toJWK(false)
