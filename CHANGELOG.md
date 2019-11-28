@@ -1,3 +1,10 @@
+## [0.6.2](https://github.com/egendata/messaging/compare/v0.6.1...v0.6.2) (2019-11-28)
+
+
+### Bug Fixes
+
+* 🐛 Updated all dependencies to latest ([#66](https://github.com/egendata/messaging/issues/66)) ([6eae9a3](https://github.com/egendata/messaging/commit/6eae9a3c71d19008e9e35d22414d6251d3ab4886))
+
 ## [0.6.1](https://github.com/egendata/messaging/compare/v0.6.0...v0.6.1) (2019-11-28)
 
 
