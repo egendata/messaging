@@ -1,14 +1,14 @@
 const tokenService = require('../lib/token')
-const { JWT, JWK } = require('@panva/jose')
+const { JWT, JWK } = require('jose')
 const { Base64: { encodeURI } } = require('js-base64')
 
 const { verify, sign } = tokenService({
-  sign: (payload, key, header) => JWT.sign(payload, JWK.importKey(key), { header }),
+  sign: (payload, key, header) => JWT.sign(payload, JWK.asKey(key), { header }),
   decode: (tok, opts) => {
     const { payload, header, signature } = JWT.decode(tok, opts)
     return { claimsSet: payload, header, signature }
   },
-  verify: (tok, jwk) => JWT.verify(tok, JWK.importKey(jwk))
+  verify: (tok, jwk) => JWT.verify(tok, JWK.asKey(jwk))
 })
 
 const defaultOptions = {
