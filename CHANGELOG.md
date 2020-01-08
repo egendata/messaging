@@ -1,3 +1,10 @@
+# [0.7.0](https://github.com/egendata/messaging/compare/v0.6.2...v0.7.0) (2020-01-08)
+
+
+### Features
+
+* 🎸 Added messages for reading and writing recipients ([#67](https://github.com/egendata/messaging/issues/67)) ([4297c76](https://github.com/egendata/messaging/commit/4297c7691547b4cb2d23e3885633e550a1520a74))
+
 ## [0.6.2](https://github.com/egendata/messaging/compare/v0.6.1...v0.6.2) (2019-11-28)
 
 
