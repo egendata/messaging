@@ -3,8 +3,5 @@
   "plugins": ["jest"],
   "env": {
     "node": true
-  },
-  "rules": {
-    "jest/no-disabled-tests": "off"
   }
 }

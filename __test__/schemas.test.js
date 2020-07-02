@@ -124,7 +124,7 @@ describe('schemas', () => {
     // This would should be an invalid object
     // Checking if values are undefined is not possible in joi.
     //  Hopefully and probably, it will not cause any problems when parsing
-    it.skip('throws if permission.denied exists but is undefined', async () => {
+    it.skip('throws if permission.denied exists but is undefined', async () => { // eslint-disable jest/no-disabled-tests
       connection.permissions.denied = undefined
       await expect(
         schemas.CONNECTION.validate(connection)
@@ -134,7 +134,7 @@ describe('schemas', () => {
     // This would should be an invalid object
     // Checking if values are undefined is not possible in joi.
     //  Hopefully and probably, it will not cause any problems when parsing
-    it.skip('throws if permission.approved exists but is undefined', async () => {
+    it.skip('throws if permission.approved exists but is undefined', async () => { // eslint-disable jest/no-disabled-tests
       connection.permissions.approved = undefined
       await expect(
         schemas.CONNECTION.validate(connection)
@@ -144,7 +144,7 @@ describe('schemas', () => {
     // This would should be an invalid object
     // Checking if values are undefined is not possible in joi.
     //  Hopefully and probably, it will not cause any problems when parsing
-    it.skip('throws if permissions exists but is undefined', async () => {
+    it.skip('throws if permissions exists but is undefined', async () => { // eslint-disable jest/no-disabled-tests
       connection.permissions = undefined
       await expect(
         schemas.CONNECTION.validate(connection)
