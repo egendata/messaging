@@ -113,7 +113,7 @@ describe('schemas', () => {
         schemas.CONNECTION.validate(connection)
       ).resolves.not.toThrow()
     })
-    
+
     it('throws if permissions exists but is empty', async () => {
       connection.permissions = {}
       await expect(
@@ -122,7 +122,7 @@ describe('schemas', () => {
     })
 
     // This would should be an invalid object
-    // Checking if values are undefined is not possible in joi. 
+    // Checking if values are undefined is not possible in joi.
     //  Hopefully and probably, it will not cause any problems when parsing
     it.skip('throws if permission.denied exists but is undefined', async () => {
       connection.permissions.denied = undefined
@@ -132,7 +132,7 @@ describe('schemas', () => {
     })
 
     // This would should be an invalid object
-    // Checking if values are undefined is not possible in joi. 
+    // Checking if values are undefined is not possible in joi.
     //  Hopefully and probably, it will not cause any problems when parsing
     it.skip('throws if permission.approved exists but is undefined', async () => {
       connection.permissions.approved = undefined
@@ -142,7 +142,7 @@ describe('schemas', () => {
     })
 
     // This would should be an invalid object
-    // Checking if values are undefined is not possible in joi. 
+    // Checking if values are undefined is not possible in joi.
     //  Hopefully and probably, it will not cause any problems when parsing
     it.skip('throws if permissions exists but is undefined', async () => {
       connection.permissions = undefined
