@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
-    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/config-conventional": "^9.1.1",
     "@semantic-release/changelog": "^3.0.6",
     "@semantic-release/git": "^7.0.18",
     "eslint": "^6.7.1",
