@@ -31,7 +31,7 @@
     "http-errors": "^1.7.3",
     "isomorphic-fetch": "^2.2.1",
     "joi-browser": "^13.4.0",
-    "js-base64": "^2.5.1"
+    "js-base64": "^3.4.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
