@@ -29,7 +29,7 @@
   "homepage": "https://github.com/egendata/messaging/#readme",
   "dependencies": {
     "http-errors": "^1.7.3",
-    "isomorphic-fetch": "^2.2.1",
+    "isomorphic-fetch": "^3.0.0",
     "joi-browser": "^13.4.0",
     "js-base64": "^3.4.4"
   },
