@@ -48,7 +48,7 @@
     "husky": "^4.2.5",
     "jest": "^26.2.2",
     "jest-fetch-mock": "^3.0.3",
-    "jose": "^2.0.2",
+    "jose": "^3.11.4",
     "lint-staged": "^10.2.11",
     "semantic-release": "^15.13.31"
   },
